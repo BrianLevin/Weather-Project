@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/BrianLevin/Weather-Project/issues"
   },
-  "homepage": "https://github.com/BrianLevin/Weather-Project#readme"
+  "homepage": "https://github.com/BrianLevin/Weather-Project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
