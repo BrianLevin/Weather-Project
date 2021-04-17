@@ -10,6 +10,8 @@ app.get("/", function (req, res) {
 
 });
 
+app.post("/")
+
 // const query = "London";
 
 // apiKey = "bcd5953a34ae60d3a19dd457376dfad5";
