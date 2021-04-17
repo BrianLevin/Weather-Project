@@ -15,7 +15,16 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=Paris&units=imper
         responce.on("data", function(data){
 
             const weatherData= JSON.parse(data);
-            console.log(weatherData);
+            
+            const object = {
+name: "Angela",
+favoriteFood: "Steak"
+
+            }
+
+            console.log(JSON.stringify(object));
+
+
 
         });
     });
