@@ -4,6 +4,12 @@ const https = require("https");
 
 const app = express();
 
+app.use(bodyParser.urlencoded({extended: true})) 
+
+const bodyParser = require("body-parser");
+
+
+
 app.get("/", function (req, res) {
 
     res.sendFile (__dirname  + "/index.html")
