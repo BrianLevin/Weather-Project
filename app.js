@@ -1,36 +1,37 @@
-const express =  require("express");
+const express = require("express");
 
 const https = require("https");
 
+const app = express();
 
-const app =  express();
+app.get("/", function (req, res) {
+  const url =
+    "https://api.openweathermap.org/data/2.5/weather?q=Paris&units=imperial&appid=bcd5953a34ae60d3a19dd457376dfad5";
+  https.get(url, function (responce) {
+    console.log(responce.statusCode);
 
-app.get("/", function(req,res){
+    responce.on("data", function (data) {
+      const weatherData = JSON.parse(data);
 
-const url = "https://api.openweathermap.org/data/2.5/weather?q=Paris&units=imperial&appid=bcd5953a34ae60d3a19dd457376dfad5";
-    https.get(url, function(responce){
+      const temp = weatherData.main.temp;
 
-        console.log(responce.statusCode);
+      const weatherDescription = weatherData.weather[0].description;
 
-        responce.on("data", function(data){
+      const icon = weatherData.weather[0].icon;
 
-            const weatherData= JSON.parse(data);
-            
-            const temp = weatherData.main.temp;
-            console.log(temp);
+      imageURL = "http://openweathermap.org/img/wn/"+ icon +"@2x.png"
 
-            const weatherDescription= weatherData.weather[0].description;
-res.write("<p>The weather is currently " + weatherDescription + "</p>");
-res.write("<h1>The temperature in Paris is " + temp + " degrees Fahrenheit.</h1>");
-res.send();
-        });
+      res.write("<p>The weather is currently " + weatherDescription + "</p>");
+      res.write(
+        "<h1>The temperature in Paris is " + temp + " degrees Fahrenheit.</h1>"
+      );
+
+      res.write("<img src =" +imageURL + ">" );
+      res.send();
     });
-    
-
+  });
 });
 
-app.listen(3000,  function(){
-
-    console.log("Server is running on port 3000!");
-
+app.listen(3000, function () {
+  console.log("Server is running on port 3000!");
 });
