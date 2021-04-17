@@ -10,7 +10,7 @@ app.get("/", function(req,res){
 const url = "https://api.openweathermap.org/data/2.5/weather?q=Paris&units=imperial&appid=bcd5953a34ae60d3a19dd457376dfad5";
     https.get(url, function(responce){
 
-        console.log(responce);
+        console.log(responce.statusCode);
     });
     res.send("Server is up and running.")
 
