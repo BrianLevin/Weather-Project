@@ -20,11 +20,12 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q=Paris&units=imper
             console.log(temp);
 
             const weatherDescription= weatherData.weather[0].description;
-console.log(weatherDescription);
+
+res.send("The temperature in London is " + temp + " degrees Fahrenheit.");
 
         });
     });
-    res.send("Server is up and running.")
+    
 
 });
 
