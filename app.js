@@ -10,7 +10,10 @@ app.get("/", function (req, res) {
 
 });
 
-app.post("/")
+app.post("/", function(req,res){
+
+    console.log("Post request recieved")
+})
 
 // const query = "London";
 
